@@ -67,24 +67,40 @@ gpg --cipher-algo AES256 -c [arquivo]
 ---
 ## GPG
 ### Criar chave gpg
+```bash
 gpg --gen-key  #preencher os dados solicitados e digitar senha
+```
 ou 
+```bash
 gpg2 --full-gen-key
+```
 
 ### Exportar chave pública
+```bash
 gpg -a --export ID CHAVE > nome_do_arquivo.pub
+```
 ou
+```bash
 gpg --export [--armor | -a] ID Usuario > nome_chave-pubkey.asc
+```
 ou
+```bash
 ssh-keygen -y <- preferível
+```
 
 ### Listar chave privada
-gpg -K 
+```bash
+gpg -K
+```
 ou
+```bash
 gpg --list-secret-keys
+```
 
 ### Exportar chave privada
+```bash
 gpg --export-secret-keys [--armor | -a] ID Usuario > nome_chave-privkey.asc
+```
 
 > [!NOTE] 
 Nota: O arquivo de chave privada é o pubring.kbx
@@ -331,6 +347,6 @@ soffice --headless --infilter=writerglobal8_HTML --convert-to docx:'MS Word 2007
 ---
 ## Testar várias imagens docker com grype
 ```bash
-for image in $(docker image ls | grep PALAVA-CHAVE | tr -s ' ' | cut -f1-2 -d' ' | tr ' ' ':'); do echo "$image"; grype "$image" | tee ~/"${image#sensedia/}"; done
+for image in $(docker image ls | grep PALAVA-CHAVE | tr -s ' ' | cut -f1-2 -d' ' | tr ' ' ':'); do echo "$image"; grype "$image" | tee ~/"${image#PALAVRA CHAVE/}"; done
 ```
 ---
