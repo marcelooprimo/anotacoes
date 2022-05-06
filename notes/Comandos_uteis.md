@@ -58,12 +58,14 @@ lynx -source https://gizmodo.uol.com.br | grep 'rel="bookmark"' | sed 's/<[/]a>/
 ---
 ## Criar arquivo criptografado
 ### Criptografa arquivo utilizando AES256
+```bash
 gpg --cipher-algo AES256 -c [arquivo]
-
+```
 ---
 ### Cria arquivo 7z criptografado
+```bash
 7z a -p -mx7 -mhe -t7z [nome arquivo].7z [arquivos]
-
+```
 ---
 ## GPG
 ### Criar chave gpg
@@ -102,21 +104,21 @@ gpg --list-secret-keys
 gpg --export-secret-keys [--armor | -a] ID Usuario > nome_chave-privkey.asc
 ```
 
-> [!NOTE] 
-Nota: O arquivo de chave privada é o pubring.kbx
-
 ---
 ## Criar chave ed25519 para ssh 
 
 ```bash
 ssh-keygen -o -a 100 -t ed25519 -f ~/.ssh/id_ed25519 -C "Nova chave ssh para os servers"
 ```
-> [!info]
--o: Save the private-key using the new OpenSSH format rather than the PEM format. Actually, this option is implied when you specify the key type as ed25519.
--a: It’s the numbers of KDF (Key Derivation Function) rounds. Higher numbers result in slower passphrase verification, increasing the resistance to brute-force password cracking should the private-key be stolen.
--t: Specifies the type of key to create, in our case the Ed25519.
--f: Specify the filename of the generated key file. If you want it to be discovered automatically by the SSH agent, it must be stored in the default `.ssh` directory within your home directory.
--C: An option to specify a comment. It’s purely informational and can be anything. But it’s usually filled with `<login>@<hostname>` who generated the key.
+>-o: Save the private-key using the new OpenSSH format rather than the PEM format. Actually, this option is implied when you specify the key type as ed25519.
+
+>-a: It’s the numbers of KDF (Key Derivation Function) rounds. Higher numbers result in slower passphrase verification, increasing the resistance to brute-force password cracking should the private-key be stolen.
+
+>-t: Specifies the type of key to create, in our case the Ed25519.
+
+>-f: Specify the filename of the generated key file. If you want it to be discovered automatically by the SSH agent, it must be stored in the default `.ssh` directory within your home directory.
+
+>-C: An option to specify a comment. It’s purely informational and can be anything. But it’s usually filled with `<login>@<hostname>` who generated the key.
 
 ---
 ## Expressão regular data formato AAAA-MM-DD
@@ -144,7 +146,7 @@ dig +short test.openresolver.com TXT @ENDERECO_IP_DO_HOST
 ```bash
 ssh -D porta -q -C -N USUARIO@SERVIDOR_SSH
 ```
->[!INFO]
+
 >- após utilizar o comando acima, ir nas configurações do navegador e configurar SOCKS 5 como:
 `localhost + porta escolhida no comando_ssh`
 
@@ -294,7 +296,7 @@ pwgen -ncBsy -r '"`^~' 20 20
 ```
 ---
 ## Snipet utilizando inotify para monitorar a criação de um arquivo no /tmp
->[!INFO] 
+
 >inotifywait é fornecido por inotify-tools no ubuntu
 
 ```bash
@@ -323,7 +325,7 @@ ps2pdf -dPDFSETTINGS=/ebook input.pdf ps2pdf.pdf
 ```
 ---
 ## Exibir somente o que contém em 2 arquivos
-```basH
+```bash
 diff --new-line-format="" --unchanged-line-format=""  file1 file2 < LEMBRAR DE PESQUISAR MELHOR SOBRE
 ```
 ---
