@@ -44,5 +44,18 @@ git commit -m "<COMENTÁRIO>"
 ```bash
 git push origin <NOME DA BRANCH>
 ```
-[!INFO]
+ou
+```bash
+git push --set-upstream origin <NOME DA BRANCH>
+```
 >Se for fazer o push direto na branch master ou na branch main só digitar git push (e torcer para não dar ruim :rofl:)
+---
+## Alterna a branch
+```bash
+git checkout <NOME DA BRANCH>
+```
+---
+## Remove uma branch
+```bash
+git branch -d <NOME DA BRANCH>
+```
