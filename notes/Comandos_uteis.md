@@ -332,14 +332,14 @@ diff --new-line-format="" --unchanged-line-format=""  file1 file2 < LEMBRAR DE P
 ## Comandos vim
 | Comando | Explicação |
 | ---|--- |
-| :sp filename | Open filename in horizontal split |
-| :vsp filename | Open filename in vertical split |
-| Ctrl-w h ou Ctrl-w ← | Shift focus to split on left of current |
-| Ctrl-w l ou Ctrl-w → | Shift focus to split on right of current |
-| Ctrl-w j ou Ctrl-w ↓ | Shift focus to split below the current |
-| Ctrl-w k ou Ctrl-w ↑ | Shift focus to split above the current |
-| Ctrl-w n+ | Increase size of current split by n lines |
-| Ctrl-w n- | Decrease size of current split by n lines |
+| `:sp filename` | Open filename in horizontal split |
+| `:vsp filename` | Open filename in vertical split |
+| `Ctrl-w h` ou `Ctrl-w ←` | Shift focus to split on left of current |
+| `Ctrl-w l` ou `Ctrl-w →` | Shift focus to split on right of current |
+| `Ctrl-w j` ou `Ctrl-w ↓` | Shift focus to split below the current |
+| `Ctrl-w k` ou `Ctrl-w ↑` | Shift focus to split above the current |
+| `Ctrl-w n+` | Increase size of current split by n lines |
+| `Ctrl-w n-` | Decrease size of current split by n lines |
 
 
 
@@ -354,4 +354,23 @@ soffice --headless --infilter=writerglobal8_HTML --convert-to docx:'MS Word 2007
 ```bash
 for image in $(docker image ls | grep PALAVA-CHAVE | tr -s ' ' | cut -f1-2 -d' ' | tr ' ' ':'); do echo "$image"; grype "$image" | tee ~/"${image#PALAVRA CHAVE/}"; done
 ```
+
 ---
+## Copiar ou colar item da área de transferência
+* Copiar um item:
+```bash
+xclip -selection clipboard
+```
+* Colar um item:
+```bash
+xclip -selection clipboard -o
+```
+**Exemplos:**
+* Copiar a saída de um script ou comando no terminal diretamente para a área de transferência:
+```bash
+ls -l | xclip -selection clipboard
+```
+* Enviar um conteúdo da área de transferência para um comando no terminal:
+```bash
+xclip -selection clipboard | jq
+```
