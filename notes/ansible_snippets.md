@@ -1,4 +1,4 @@
-##**Coleta as informações sobre uma lista de pacotes e imprime a saída**
+## **Coleta as informações sobre uma lista de pacotes e imprime a saída**
 - Coleta a versão do software e agrupa a saída por servidor
 ```bash
 ---
@@ -18,7 +18,7 @@
         var: package
 ```
 
-##**Imprime mensagem e a variável registrada**
+## **Imprime mensagem e a variável registrada**
 - Mesma função que o anterior, porém apenas para 1 pacote e imprimindo 1 mensagem
 ```bash
 ---
@@ -34,7 +34,7 @@
         msg: "Server = {{ ansible_nodename }} - Package version = {{ package }}"
 ```
 
-##**Imprime mensagem e a variável registrada**
+## **Imprime mensagem e a variável registrada**
 - Limita a execução ao host que tem servidor no nome
 ```bash
 ---
