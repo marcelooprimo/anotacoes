@@ -330,14 +330,17 @@ diff --new-line-format="" --unchanged-line-format=""  file1 file2 < LEMBRAR DE P
 ```
 ---
 ## Comandos vim
-- :sp filename 	Open filename in horizontal split
-- :vsp filename 	Open filename in vertical split
-- Ctrl-w h ou Ctrl-w ← 	Shift focus to split on left of current
-- Ctrl-w l ou Ctrl-w → 	Shift focus to split on right of current
-- Ctrl-w j ou Ctrl-w ↓ 	Shift focus to split below the current
-- Ctrl-w k ou Ctrl-w ↑ 	Shift focus to split above the current
-- Ctrl-w n+ 	Increase size of current split by n lines
-- Ctrl-w n- 	Decrease size of current split by n lines
+| Comando | Explicação |
+| ---|--- |
+| :sp filename | Open filename in horizontal split |
+| :vsp filename | Open filename in vertical split |
+| Ctrl-w h ou Ctrl-w ← | Shift focus to split on left of current |
+| Ctrl-w l ou Ctrl-w → | Shift focus to split on right of current |
+| Ctrl-w j ou Ctrl-w ↓ | Shift focus to split below the current |
+| Ctrl-w k ou Ctrl-w ↑ | Shift focus to split above the current |
+| Ctrl-w n+ | Increase size of current split by n lines |
+| Ctrl-w n- | Decrease size of current split by n lines |
+
 
 
 ---
