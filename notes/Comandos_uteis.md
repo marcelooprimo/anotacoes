@@ -61,7 +61,24 @@ lynx -source https://gizmodo.uol.com.br | grep 'rel="bookmark"' | sed 's/<[/]a>/
 ```bash
 gpg --cipher-algo AES256 -c [arquivo]
 ```
+- Mesma ação acima, mas informando a senha diretamente na linha de comando (útil para scripts de backup)
+```bash
+echo "$PASSWORD" | gpg --batch --passphrase-fd 0 --cipher-algo AES-256 -c [arquivo]
+```
+- Obtendo a senha diretamente de um arquivo
+```bash
+gpg --batch --passphrase-file [caminho_do_arquivo] --cipher-algo AES-256 -c [arquivo]
+```
 ---
+### Decriptografa um arquivo criado com GnuPG
+```bash
+gpg --output [nome_do_arquivo] --decrypt [nome_do_arquivo].gpg
+```
+- Mesma ação acima, mas informando a senha diretamente na linha de comando (útil para scripts de backup)
+```bash
+echo "$PASSWORD" | gpg --batch --passphrase-fd 0 --output [nome_do_arquivo] --decrypt [nome_do_arquivo].gpg
+```
+--- 
 ### Cria arquivo 7z criptografado
 ```bash
 7z a -p -mx7 -mhe -t7z [nome arquivo].7z [arquivos]
@@ -373,4 +390,16 @@ ls -l | xclip -selection clipboard
 * Enviar um conteúdo da área de transferência para um comando no terminal:
 ```bash
 xclip -selection clipboard | jq
+```
+---
+## Listar processos por nome
+
+- Usando htop:
+```bash
+htop -p "$(pgrep -d, firefox)"
+```
+
+- Usando o top:
+```bash
+top -p "$(pgrep -i -d, firefox)"
 ```
