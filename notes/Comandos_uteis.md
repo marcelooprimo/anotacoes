@@ -64,6 +64,7 @@ gpg --cipher-algo AES256 -c [arquivo]
 > Para não necessitar informar a cifra criptografica na linha de comando, basta criar o arquivo ~.gnupg/gpg.conf e adicionar a linha cipher-algo AES256 para alterar o padrão de criptografia de CAST5 para AES256.
 > Assim, o comando ficaria `gpg -c [arquivo]`
 
+
 ```bash
 - Mesma ação acima, mas informando a senha diretamente na linha de comando (útil para scripts de backup)
 ```bash
@@ -82,6 +83,15 @@ gpg --output [nome_do_arquivo] --decrypt [nome_do_arquivo].gpg
 ```bash
 echo "$PASSWORD" | gpg --batch --passphrase-fd 0 --output [nome_do_arquivo] --decrypt [nome_do_arquivo].gpg
 ```
+
+**Mais informações**
+
+> Utilizando uma chave pública:
+adaptar esse manual da ibm https://www.ibm.com/docs/en/tms-and-wt/version-missing?topic=keys-example-using-gnupg-encrypt-files-pgp-key
+
+> outra fonte:
+https://guides.library.illinois.edu/data_encryption/gpgcheatsheet
+
 --- 
 ### Cria arquivo 7z criptografado
 ```bash
