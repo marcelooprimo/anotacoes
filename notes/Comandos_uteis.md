@@ -403,3 +403,40 @@ htop -p "$(pgrep -d, firefox)"
 ```bash
 top -p "$(pgrep -i -d, firefox)"
 ```
+---
+## SCP em bastion GCP
+```bash
+gcloud compute scp --zone="Região" --project="projeto" bastion-host-t0:<CAMINHO/ARQUIVO> <CAMINHO LOCAL>
+```
+
+## Criar, habilitar e/ou incrementar swapfile
+
+- Criar (linha abaixo cria um swapfile de 4GB):
+```bash
+sudo dd if=/dev/zero of=/swapfile bs=1G count=4
+```
+- Alterar permissões:
+```bash
+sudo chmod 600 /swapfile
+```
+- “Formatar” como swap:
+```bash
+sudo mkswap /swapfile
+```
+- Ativar:
+```bash
+sudo swapon /swapfile
+```
+- Habilitar no fstab:
+```bash
+/swapfile none swap sw 0 0
+```
+- Alterar o tamanho do swapfile:
+```bash
+sudo swapoff -a
+```
+- Alterar o tamanho (linha abaixo altera o swapfile para 8GB):
+```bash
+sudo dd if=/dev/zero of=/swapfile bs=1G count=8
+```
+> **Seguir os passos à partir do alterar permissões até habilitar no fstab, se for o caso.**
