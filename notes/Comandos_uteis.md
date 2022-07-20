@@ -61,6 +61,10 @@ lynx -source https://gizmodo.uol.com.br | grep 'rel="bookmark"' | sed 's/<[/]a>/
 ```bash
 gpg --cipher-algo AES256 -c [arquivo]
 ```
+> Para não necessitar informar a cifra criptografica na linha de comando, basta criar o arquivo ~.gnupg/gpg.conf e adicionar a linha cipher-algo AES256 para alterar o padrão de criptografia de CAST5 para AES256.
+> Assim, o comando ficaria `gpg -c [arquivo]`
+
+```bash
 - Mesma ação acima, mas informando a senha diretamente na linha de comando (útil para scripts de backup)
 ```bash
 echo "$PASSWORD" | gpg --batch --passphrase-fd 0 --cipher-algo AES-256 -c [arquivo]
